@@ -1,10 +1,9 @@
 import math
 from dataclasses import dataclass
 
-
 @dataclass
 class Vec2:
-    direction: float
+    direction: float  # угол в градусах
 
     @property
     def x(self) -> float:
@@ -14,4 +13,7 @@ class Vec2:
     @property
     def y(self) -> float:
         rad = math.radians(self.direction)
-        return -math.sin(rad)
+        return -math.sin(rad)  # минус из-за координат Pygame
+
+    def copy(self):
+        return Vec2(self.direction)
